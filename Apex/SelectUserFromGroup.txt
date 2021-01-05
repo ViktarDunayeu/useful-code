@@ -1,0 +1,2 @@
+List<User> usersForSend = [SELECT Id, Name, Email FROM User WHERE Id IN 
+(SELECT UserOrGroupId FROM GroupMember WHERE Group.Name = :groupName)];
