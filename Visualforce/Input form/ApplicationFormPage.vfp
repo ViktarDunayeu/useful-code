@@ -1,0 +1,45 @@
+<apex:page standardController="Application__c" extensions="ApplicationFormController" sidebar="false" showHeader="false"
+    docType="html-5.0" lightningStylesheets="true">
+    
+    <style type="text/css">
+        .header-style{
+        	background-color: rgb(243, 242, 242);
+        	border-radius: 10px;
+        }
+    </style>
+
+    <apex:slds />
+
+    <div class="slds-scope">
+        <h1 class="slds-text-title_bold slds-m-around_medium slds-p-around_x-small header-style">
+            Form
+        </h1>
+        <apex:form >
+            <div class="slds-grid">
+                <div class="slds-col">
+                    <apex:repeat value="{!leftfields}" var="listItem" id="repeatleft">
+                        <div class="slds-m-top_medium slds-m-left_xx-large">
+                            {!listItem.label}
+                            <br/>
+                            <apex:inputField value="{!Application__c[listItem.apiName]}"/>
+                        </div>
+                    </apex:repeat>
+                </div>
+                <div class="slds-col">
+                    <apex:repeat value="{!rightfields}" var="listItem" id="repeatright">
+                        <div class="slds-m-top_medium slds-m-left_xx-large">
+                            {!listItem.label}
+                            <br/>
+                            <apex:inputField value="{!Application__c[listItem.apiName]}"/>
+                        </div>
+                    </apex:repeat>
+                </div>
+            </div>
+
+            <div class="slds-align_absolute-center">
+                <apex:commandButton action="{!save}" value="Submit" styleClass="slds-button slds-button_brand slds-m-vertical_medium"/>
+            </div>
+        </apex:form>
+    </div>
+</apex:page>
+                                        
